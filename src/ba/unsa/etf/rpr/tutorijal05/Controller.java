@@ -126,9 +126,12 @@ public class Controller {
 
     public void equalsClicked() {
         executeOperation();
-        output.set(Double.toString(round(previousNumber, 2)));
+        String newValue = Double.toString(previousNumber);
+        if(newValue.endsWith(".0")) newValue.substring(0,newValue.length()-2);
+        output.set(newValue);
         operation = "=";
     }
+
 
     public void dotClicked() {
         if(dot) return;
